@@ -4,15 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bacground_screen"
+    android:backgroundTint="@color/bacground_screen"
     tools:context=".HelpActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10px"
-        android:layout_marginTop="10px"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="488dp"
+        android:fontFamily="@font/carter_one"
         android:text="Pomoc"
+        android:textColor="#4E1A1A"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,11 +26,14 @@
         android:id="@+id/GoToMenuButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10px"
-        android:layout_marginEnd="10px"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="76dp"
+        android:backgroundTint="@color/background"
+        android:fontFamily="@font/carter_one"
         android:text="Wróć do menu"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:rippleColor="#B39898" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
