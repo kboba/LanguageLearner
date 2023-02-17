@@ -20,6 +20,17 @@ public class ImageReader {
         iconsIds.add(R.drawable.icon_0007);
         iconsIds.add(R.drawable.icon_0008);
         iconsIds.add(R.drawable.icon_0009);
+        iconsIds.add(R.drawable.icon_0010);
+        iconsIds.add(R.drawable.icon_0011);
+        iconsIds.add(R.drawable.icon_0012);
+        iconsIds.add(R.drawable.icon_0013);
+        iconsIds.add(R.drawable.icon_0014);
+        iconsIds.add(R.drawable.icon_0015);
+        iconsIds.add(R.drawable.icon_0016);
+        iconsIds.add(R.drawable.icon_0017);
+        iconsIds.add(R.drawable.icon_0018);
+        iconsIds.add(R.drawable.icon_0019);
+        iconsIds.add(R.drawable.icon_0020);
 
         return  iconsIds;
     }

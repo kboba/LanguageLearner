@@ -10,8 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mobile.languagelearner.model.WordKit;
-import com.mobile.languagelearner.utils.ImageReader;
-import com.mobile.languagelearner.utils.WordsReader;
+import com.mobile.languagelearner.utils.Utills;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,32 +33,26 @@ public class LearningModeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learning_mode);
 
-        goToMenuButton = findViewById(R.id.GoToMenuButton);
-        leftButton = findViewById(R.id.btnLeft);
-        rightButton = findViewById(R.id.btnRight);
-
-        imageView = findViewById(R.id.ImageView);
-        ukrainnianWord = findViewById(R.id.UkrainianWord);
-        polishWord = findViewById(R.id.PolishWords);
-        progressCounter = findViewById(R.id.ProgressCounter);
+        initialize();
 
         currentIdx = 0;
-        wordKits = getWordsFromChapter(1);
+        wordKits = Utills.getWordsFromChapter(1);
 
-        if(wordKits == null) {
+        // Communicate if there is a problem with loading data and move to main menu
+        /*if(wordKits == null) {
             Toast.makeText(getApplicationContext(), "Problem z załadowaniem danych do nauki", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(LearningModeActivity.this, HomeActivity.class);
             startActivity(intent);
-        }
-
+        }*/
 
         WordKit firstWord = wordKits.get(0);
         polishWord.setText(firstWord.getPolishWord());
         ukrainnianWord.setText(firstWord.getUkrainianWord());
         imageView.setImageResource(firstWord.getImageId());
+        progressCounter.setText("1/21");
 
         leftButton.setOnClickListener(v -> {
-            if(!isIdxOutOfBound(currentIdx-1)) {
+            if (!isIdxOutOfBound(currentIdx - 1)) {
                 setCurrentKit(--currentIdx);
             }
         });
@@ -76,32 +69,8 @@ public class LearningModeActivity extends AppCompatActivity {
         });
     }
 
-    public List<WordKit> getWordsFromChapter(int chapter) {
-        List<WordKit> wordKits = new ArrayList<>();
-        List<String> polishWords = WordsReader.polishWords1();
-        List<String> ukrainianWords = WordsReader.ukrainianWords1();
-        List<Integer> imageIds = ImageReader.getImageIds1();
-
-        if(polishWords == null || ukrainianWords == null || imageIds == null)
-            return null;
-        if(!(polishWords.size() == ukrainianWords.size() && polishWords.size() == imageIds.size()))
-            return null;
-
-        for(int i=0; i<imageIds.size(); i++){
-            String plWord = polishWords.get(i);
-            String ukWord = ukrainianWords.get(i);
-            int imageId = imageIds.get(i);
-
-            WordKit wordKit = new WordKit(plWord, ukWord, imageId);
-
-            wordKits.add(wordKit);
-        }
-
-        return wordKits;
-    }
-
     private boolean isIdxOutOfBound(int i) {
-        return (i < 0 || i >= 10);
+        return (i < 0 || i >= wordKits.size());
     }
 
     private void setCurrentKit(int idx) {
@@ -109,7 +78,18 @@ public class LearningModeActivity extends AppCompatActivity {
         polishWord.setText(wordKit.getPolishWord());
         ukrainnianWord.setText(wordKit.getUkrainianWord());
         imageView.setImageResource(wordKit.getImageId());
-        progressCounter.setText(idx+"/10");
+        progressCounter.setText( (idx+1)+"/21");
     }
 
+
+    private void initialize() {
+        goToMenuButton = findViewById(R.id.GoToMenuButton);
+        leftButton = findViewById(R.id.btnLeft);
+        rightButton = findViewById(R.id.btnRight);
+
+        imageView = findViewById(R.id.ImageView);
+        ukrainnianWord = findViewById(R.id.UkrainianWord);
+        polishWord = findViewById(R.id.PolishWords);
+        progressCounter = findViewById(R.id.ProgressCounter);
+    }
 }

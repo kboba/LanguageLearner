@@ -21,6 +21,17 @@ public class WordsReader {
         polishWords.add("Przepraszam");
         polishWords.add("Tak");
         polishWords.add("Nie");
+        polishWords.add("Banan");
+        polishWords.add("Jabłko");
+        polishWords.add("Pomarańcza");
+        polishWords.add("Gruszka");
+        polishWords.add("Brzoskwinia");
+        polishWords.add("Śliwka");
+        polishWords.add("Kot");
+        polishWords.add("Żaba");
+        polishWords.add("Pingwin");
+        polishWords.add("Sowa");
+        polishWords.add("Koala");
 
         return polishWords;
     }
@@ -38,6 +49,17 @@ public class WordsReader {
         ukrainianWords.add("Вибачте");
         ukrainianWords.add("Так");
         ukrainianWords.add("Немає");
+        ukrainianWords.add("Банан");
+        ukrainianWords.add("Яблуко");
+        ukrainianWords.add("Помаранчевий");
+        ukrainianWords.add("Груша");
+        ukrainianWords.add("Персик");
+        ukrainianWords.add("Слива");
+        ukrainianWords.add("Кіт");
+        ukrainianWords.add("Жаба");
+        ukrainianWords.add("Пінгвін");
+        ukrainianWords.add("Сова");
+        ukrainianWords.add("Коала");
 
         return ukrainianWords;
     }
