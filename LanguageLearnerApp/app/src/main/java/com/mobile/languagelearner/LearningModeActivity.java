@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,6 +15,7 @@ import com.mobile.languagelearner.utils.Utills;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class LearningModeActivity extends AppCompatActivity {
 
@@ -24,6 +26,7 @@ public class LearningModeActivity extends AppCompatActivity {
     private TextView progressCounter;
     private Button leftButton;
     private Button rightButton;
+    private TextToSpeech mTTS;
 
     List<WordKit> wordKits = new ArrayList<>();
     int currentIdx;
@@ -37,6 +40,15 @@ public class LearningModeActivity extends AppCompatActivity {
 
         currentIdx = 0;
         wordKits = Utills.getWordsFromChapter(1);
+
+        mTTS = new TextToSpeech(this, status -> {
+            if (status == TextToSpeech.SUCCESS)
+                mTTS.setLanguage(new Locale("pl"));
+            else
+                mTTS.setLanguage(Locale.ENGLISH);
+            mTTS.setPitch(50);
+            mTTS.setSpeechRate(50);
+        });
 
         // Communicate if there is a problem with loading data and move to main menu
         /*if(wordKits == null) {
@@ -61,6 +73,10 @@ public class LearningModeActivity extends AppCompatActivity {
             if(!isIdxOutOfBound(currentIdx+1)) {
                 setCurrentKit(++currentIdx);
             }
+        });
+
+        polishWord.setOnClickListener(v -> {
+            mTTS.speak(polishWord.getText().toString(), TextToSpeech.QUEUE_FLUSH, null, "");
         });
 
         goToMenuButton.setOnClickListener(v -> {
@@ -91,5 +107,15 @@ public class LearningModeActivity extends AppCompatActivity {
         ukrainnianWord = findViewById(R.id.UkrainianWord);
         polishWord = findViewById(R.id.PolishWords);
         progressCounter = findViewById(R.id.ProgressCounter);
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (mTTS != null) {
+            mTTS.stop();
+            mTTS.shutdown();
+        }
+
+        super.onDestroy();
     }
 }

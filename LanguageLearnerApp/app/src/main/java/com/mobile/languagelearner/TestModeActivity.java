@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,6 +15,7 @@ import com.mobile.languagelearner.utils.Utills;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 public class TestModeActivity extends AppCompatActivity {
@@ -22,6 +24,7 @@ public class TestModeActivity extends AppCompatActivity {
     private TextView ukrainnianWord;
     private TextView[] polishAnswers = new TextView[4];
     private TextView correctAnswersCounter;
+    private TextToSpeech mTTS;
 
     List<WordKit> wordKits = new ArrayList<>();
     int currentIdx;
@@ -44,6 +47,14 @@ public class TestModeActivity extends AppCompatActivity {
             Intent intent = new Intent(TestModeActivity.this, HomeActivity.class);
             startActivity(intent);
         }*/
+        mTTS = new TextToSpeech(this, status -> {
+            if (status == TextToSpeech.SUCCESS)
+                mTTS.setLanguage(new Locale("pl"));
+            else
+                mTTS.setLanguage(Locale.ENGLISH);
+            mTTS.setPitch(50);
+            mTTS.setSpeechRate(50);
+        });
 
         currentIdx = 0;
         correctAnswersCounter.setText("0/0");
@@ -54,6 +65,7 @@ public class TestModeActivity extends AppCompatActivity {
         // Listenery TextView
         for (TextView textView : polishAnswers)
             textView.setOnClickListener( v-> {
+                mTTS.speak(textView.getText().toString(), TextToSpeech.QUEUE_FLUSH, null, "");
                 if(textView.getText().equals(polishAnswers[correctAnswerId].getText())) {
                     correctAnswers++; // Add correct answer to counter
                     currentIdx++; // Increment current Ids
@@ -118,5 +130,15 @@ public class TestModeActivity extends AppCompatActivity {
         polishAnswers[2] = findViewById(R.id.PolishWords3);
         polishAnswers[3] = findViewById(R.id.PolishWords4);
         correctAnswersCounter = findViewById(R.id.CorrectAnswersCounter);
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (mTTS != null) {
+            mTTS.stop();
+            mTTS.shutdown();
+        }
+
+        super.onDestroy();
     }
 }

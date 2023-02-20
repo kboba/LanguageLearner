@@ -21,9 +21,9 @@ public class HomeActivity extends AppCompatActivity {
 
         testModeButton = findViewById(R.id.TestModeActivity);
         learningModeButton = findViewById(R.id.LearningModeActivity);
-        teacherModeButton = findViewById(R.id.TeacherModeActivity);
-        helpActivityButton = findViewById(R.id.HelpActivity);
-        settingsActivityButton = findViewById(R.id.SettingsActivity);
+//        teacherModeButton = findViewById(R.id.TeacherModeActivity);
+//        helpActivityButton = findViewById(R.id.HelpActivity);
+//        settingsActivityButton = findViewById(R.id.SettingsActivity);
 
         testModeButton.setOnClickListener(v -> {
             Intent intent = new Intent(HomeActivity.this, TestModeActivity.class);
@@ -35,19 +35,19 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        teacherModeButton.setOnClickListener(v -> {
-            Intent intent = new Intent(HomeActivity.this, TeacherModeActivity.class);
-            startActivity(intent);
-        });
-
-        helpActivityButton.setOnClickListener(v -> {
-            Intent intent = new Intent(HomeActivity.this, HelpActivity.class);
-            startActivity(intent);
-        });
-
-        settingsActivityButton.setOnClickListener(v -> {
-            Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
-            startActivity(intent);
-        });
+//        teacherModeButton.setOnClickListener(v -> {
+//            Intent intent = new Intent(HomeActivity.this, TeacherModeActivity.class);
+//            startActivity(intent);
+//        });
+//
+//        helpActivityButton.setOnClickListener(v -> {
+//            Intent intent = new Intent(HomeActivity.this, HelpActivity.class);
+//            startActivity(intent);
+//        });
+//
+//        settingsActivityButton.setOnClickListener(v -> {
+//            Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
+//            startActivity(intent);
+//        });
     }
 }

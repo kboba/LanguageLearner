@@ -14,14 +14,14 @@
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="220dp"
         android:backgroundTint="#EB675858"
         android:fontFamily="@font/carter_one"
         android:text="Tryb testu"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,60 +39,62 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TestModeActivity" />
-<!--
-    <Button
-        android:id="@+id/TeacherModeActivity"
-        android:layout_width="250dp"
-        android:layout_height="100dp"
-        android:layout_below="@+id/LearningModeActivity"
-        android:layout_centerInParent="true"
-        android:layout_gravity="center"
-        android:backgroundTint="@color/background"
-        android:fontFamily="@font/carter_one"
-        android:text="Tryb edycji"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/HelpActivity"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LearningModeActivity" />
-
-    <Button
-        android:id="@+id/HelpActivity"
-        android:layout_width="250dp"
-        android:layout_height="100dp"
-        android:layout_below="@+id/TeacherModeActivity"
-        android:layout_centerInParent="true"
-        android:layout_gravity="center"
-        android:backgroundTint="#EB614375"
-        android:fontFamily="@font/carter_one"
-        android:text="Pomoc"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/SettingsActivity"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TeacherModeActivity" />
-
-    <Button
-        android:id="@+id/SettingsActivity"
-        android:layout_width="250dp"
-        android:layout_height="100dp"
-        android:layout_below="@+id/HelpActivity"
-        android:layout_centerInParent="true"
-        android:layout_gravity="center"
-        android:layout_marginBottom="44dp"
-        android:backgroundTint="@color/background"
-        android:fontFamily="@font/carter_one"
-        android:text="Ustawienia"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent" />
--->
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TestModeActivity"
+        app:layout_constraintVertical_bias="0.261" />
+    <!--
+        <Button
+            android:id="@+id/TeacherModeActivity"
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/LearningModeActivity"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/background"
+            android:fontFamily="@font/carter_one"
+            android:text="Tryb edycji"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/HelpActivity"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LearningModeActivity" />
+
+        <Button
+            android:id="@+id/HelpActivity"
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/TeacherModeActivity"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:backgroundTint="#EB614375"
+            android:fontFamily="@font/carter_one"
+            android:text="Pomoc"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/SettingsActivity"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TeacherModeActivity" />
+
+        <Button
+            android:id="@+id/SettingsActivity"
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/HelpActivity"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="44dp"
+            android:backgroundTint="@color/background"
+            android:fontFamily="@font/carter_one"
+            android:text="Ustawienia"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toStartOf="parent" />
+    -->
 </androidx.constraintlayout.widget.ConstraintLayout>
