@@ -42,12 +42,10 @@ public class LearningModeActivity extends AppCompatActivity {
         wordKits = Utills.getWordsFromChapter(1);
 
         mTTS = new TextToSpeech(this, status -> {
-            if (status == TextToSpeech.SUCCESS)
-                mTTS.setLanguage(new Locale("pl"));
-            else
-                mTTS.setLanguage(Locale.ENGLISH);
-            mTTS.setPitch(50);
-            mTTS.setSpeechRate(50);
+            mTTS.setLanguage(new Locale("pl"));
+            mTTS.setPitch(1);
+            mTTS.setSpeechRate(0.8f);
+
         });
 
         // Communicate if there is a problem with loading data and move to main menu

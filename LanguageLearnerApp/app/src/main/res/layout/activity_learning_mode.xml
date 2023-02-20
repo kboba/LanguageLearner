@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bacground_screen"
     android:backgroundTint="@color/bacground_screen"
     tools:context=".LearningModeActivity">
 
@@ -45,6 +46,7 @@
         android:id="@+id/UkrainianWord"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:lineSpacingExtra="34sp"
         android:text="Ukraina"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/ImageView"
@@ -56,7 +58,9 @@
         android:id="@+id/PolishWords"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#3FC111"
         android:text="Polska"
+        android:textAllCaps="false"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
